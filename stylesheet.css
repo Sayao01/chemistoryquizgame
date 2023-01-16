@@ -1,115 +1,66 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<title>元素クイズ</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-<h1>化学元素クイズ</h1>
-<hr>
-<h2>問題</h2>
-<div id="text_q"></div>
-<h2>選択</h2>
-<div id="text_s"></div>
-<h2>解答</h2>
-<div id="text_a"></div>
+body {
+    background-color: rgb(208, 230, 241);
+    }
 
-<script type="text/javascript">
-//問題と解答
-qa = new Array();
-            qa[0] = ["元素の中で最も軽く宇宙で最も多く存在する元素は","水素","ヘリウム","リチウム",1];
-            qa[1] = ["宇宙で２番目に多く存在し、パーティー用グッズとしても販売される元素は","ヘリウム","リチウム","べリウム",1];
-            qa[2] = ["金属の中で最も軽い元素は","ヘリウム","炭素","リチウム",3];
-            qa[3] = ["毒性の高い元素でアクアマリンなどの素材となる元素は","べリウム","炭素","窒素",1];
-            qa[4] = ["ダイヤモンド、黒鉛等天然に存在する非金属元素は","窒素","ネオン","炭素",3];
-            qa[5] = ["空気中に最も多くあり、水に溶けにくい元素","窒素","ホウ素","さ",1];
-            qa[6] = ["地殻中に最も多く存在する、空気中でｎ番目に存在する非金属元素","フッ素","酸素","ネオン",2];
-            qa[7] = ["地殻中や蛍石などの鉱物に存在する、空気中でｎ番目に存在する非金属元素","フッ素","窒素","アルミニウム",1];
-            qa[8] = ["空気中に0.0018％存在する","ネオン","アルミニウム","窒素",1];
-            qa[9] = ["ナイフで切れる柔らかい個体。石油中に保存する","ケイ素","アルミニウム","ナトリウム",3];
-            qa[10] = ["岩石中に存在する金属元素、航空機や工具の原材料でもある","アルゴン","ケイ素","マグネシウム",3];
-            qa[11] = ["岩石中に存在する金属元素。航空機の部品などに使用される","マグネシウム","B","アルミニウム",3];
-            qa[12] = ["硬くてもろい代表的な半導体。ガラスの素材。","リン","カリウム","ケイ素",3];
-            qa[13] = ["非常に燃えやすい元素。","リン","塩素","アルゴン",1];
-            qa[14] = ["火山ガスや温泉水等に多く含まれる。ゴムの原料","カルシウム","硫黄","リン",2];
-            qa[15] = ["毒性のある気体元素。漂白剤などに使用される。","硫黄","カリウム","塩素",3];
-            qa[16] = ["不活性で他の元素と化学反応しない","ヘリウム","ネオン","アルゴン",3];
-            qa[17] = ["リチウムに次軽く、柔らかい金属。にがり等にも使用される","カリウム","カルシウム","アルミニウム",1];
-            qa[18] = ["伝導性の問い金属。骨や乾燥剤等に含まれる","カルシウム","カリウム","鉄",1];
-           
-
-//初期設定
-q_sel = 3; //選択肢の数
-
-    setReady();
-   
-//初期設定
-function setReady() {
-count = 0; //問題番号
-ansers = new Array(); //解答記録
-
-//最初の問題
-quiz();
-}
-
-//問題表示
-function quiz() {
-//問題
-document.getElementById("text_q").innerHTML = (count + 1) + "問目：" + qa[count][0];
-    //選択肢
-s = "";
-for (n=1;n<=q_sel;n++) {
-s += "【<a href='javascript:anser(" + n + ")'>" + n + "：" + qa[count][n] + "</a>】";
-}
-document.getElementById("text_s").innerHTML = s;
-}
-    //解答表示
-function anser(num) {
-var s;
-s = (count + 1) + "問目：";
-//答え合わせ
-if (num == qa[count][q_sel + 1]) {
-//正解
-s += "○" + qa[count][num];
-        ansers[count] = "○";
-} else {
-s += "×" + qa[count][num];
-        ansers[count] = "×";
-}
-document.getElementById("text_a").innerHTML = s;
-
-//次の問題を表示
-count++;
-if (count < qa.length) {
-quiz();
-} else {
-//終了
-        s = "<table border='2'><caption>成績発表</caption>";
-//1行目
-s += "<tr><th>問題</th>";
-for (n=0;n<qa.length;n++) {
-s += "<th>" + (n+1) + "</th>";
-}
-s += "</tr>";
-//2行目
-s += "<tr><th>成績</th>";
-for (n=0;n<qa.length;n++) {
-s += "<td>" + ansers[n] + "</td>";
-}
-s += "</tr>";
-s += "</table>";
-document.getElementById("text_q").innerHTML = s;
-//次の選択肢
-s = "【<a href='javascript:history.back()'>前のページに戻る</a>】";
-s += "【<a href='javascript:setReady()'>同じ問題を最初から</a>】";
-s += "【<a href=''>次の問題に進む</a>】";
-document.getElementById("text_s").innerHTML = s;
-}
-}
-</script>
-</body>
-</html>
+    h1 {
+        position: relative;
+        padding: 1rem 2rem calc(1rem + 10px);
+        background: #3ebdc9;
+        width: 20%;
+        text-align: center;
+        margin:0 auto;
+        padding: 1rem 3rem;
+        color: #fff;
+        border-radius: 100vh;
+        background-image: -webkit-linear-gradient(right, #5d75e1 0%, #00e3ae 100%);
+        background-image: linear-gradient(to left, #4f72db 0%, #00e3ae 100%);
+      }
+      
+      
+      h2 {
+        position: relative;
+        display: inline-block;
+        margin: 1rem 0 1rem -10px;
+        padding: 1rem 3rem;
+        color: #fff;
+        border-radius: 0 100vh 100vh 0;
+        background: #0075a9;
+        -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+      }
+      
+      h2:before {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 0;
+        height: 0;
+        content: '';
+        border-top: 10px solid #005276;
+        border-left: 10px solid transparent;
+      }
+            
+      h3 {
+        width: 5%;
+        margin : 10px ;
+        padding : 10px ;
+        border : 2px solid #84b5e0 ;
+        background-color : #fff ;
+        font-size: 30px;
+        text-align: left;
+      }
+      div  {
+        font-weight: bold;
+        margin : 30px ;
+        padding : 20px ;
+        border : 5px solid #84b5e0 ;
+        background-color : #fff ;
+        text-align: center;
+   }
 
 
-
+a{
+ color: rgb(75, 77, 77);
+ text-decoration :none;
+ }
+      
