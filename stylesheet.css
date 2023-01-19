@@ -6,14 +6,11 @@ body {
     background-color: rgb(208, 230, 241);
     background-repeat: no-repeat;
     background-position: 50px;
-    background-position-y:400px;
     background-size: 700px;
     position: center;
-    height: 100vh;
     font-size: 30px; 
     width: 900px;
-  
-  margin: 0px5%;
+  margin: 0px 5%;
    padding: 0px;
 }
 
